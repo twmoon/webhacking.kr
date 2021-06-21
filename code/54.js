@@ -21,10 +21,9 @@ x=run();
 function answer(i){
   x.open('GET','?m='+i,false);
   x.send(null);
-  aview.innerHTML+=x.responseText;
+  aview.innerHTML+=x.responseText; // + 추가로 사라지지않고 저장
   i++;
   if(x.responseText) setTimeout("answer("+i+")",20);
-  if(x.responseText=="") aview.innerHTML="?";
-
+  //if(x.responseText=="") aview.innerHTML="?";  //이 친구가 있으면 플래그가 다 끝나고 ?로 초기화 그래서 지움
 }
 setTimeout("answer(0)",1000);
